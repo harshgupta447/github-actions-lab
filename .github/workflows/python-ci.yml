@@ -38,5 +38,15 @@ jobs:
       - name: Run Python application
         run: python app.py
 
+
       - name: Run automated tests
-        run: python -m pytest -v
+        run: python -m pytest -v --junitxml=test-results.xml
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-test-report
+          path: test-results.xml
+          if-no-files-found: ignore
+
