@@ -16,6 +16,7 @@ on:
       - "**.py"
       - "requirements.txt"
       - ".github/workflows/**"
+      - "site/**"
 
 
 jobs:
